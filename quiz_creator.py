@@ -1,7 +1,13 @@
 # use def function 
+def collect_questions():
 # print all following instructions
-print("Quiz Creator")
-print("Enter your desired questions and the answers. Type 'EXIT' to stop the program.\n")
+    print("Quiz Creator")
+    print("Enter your desired questions and the answers. Type 'EXIT' to stop the program.\n")
+
+    with open("created_questions.txt", "a") as file:
+        while True:
+            
+        
 # use the while true loop
 # if statement
 # break to stop the while true loop
