@@ -16,9 +16,6 @@ def collect_questions():
             c = input("c) ")
             d = input("d) ")
             
-        
-# use the while true loop
-# if statement
-# break to stop the while true loop
-# save the file 
-# save the name of user then continue to the loop
+            # the correct will be saved also to the file 
+            correct = input("\nEnter the correct answer to the question (a, b, c, or d): ").lower()
+            
