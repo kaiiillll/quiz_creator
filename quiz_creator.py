@@ -6,7 +6,9 @@ def collect_questions():
 
     with open("created_questions.txt", "a") as file:
         while True:
-            
+            question = input("Enter the question (or 'EXIT' to quit): ")
+            if question.lower() == 'EXIT': # I used .lower so it will accept different input from user
+                break # to stop the loop of while
         
 # use the while true loop
 # if statement
