@@ -21,4 +21,15 @@ def collect_questions():
             while correct not in ['a', 'b', 'c', 'd']:
                 print("That is invalid input!. Please enter a, b, c, or d.")
                 correct = input("Enter the correct answer (a, b, c, or d"):
+            
+            # these will write the inputs into the file
+            file.write(f"Question: {question}\n")
+            file.write(f"a) {a}\n")
+            file.write(f"b) {b}\n")
+            file.write(f"c) {c}\n")
+            file.write(f"d) {d}\n")
+            file.write(f"Correct answer: {correct}\n\n")
+            
+            print("\nAll questions have been saved to 'created_questions.txt'.")
+
                     
