@@ -18,4 +18,7 @@ def collect_questions():
             
             # the correct will be saved also to the file 
             correct = input("\nEnter the correct answer to the question (a, b, c, or d): ").lower()
-            
+            while correct not in ['a', 'b', 'c', 'd']:
+                print("That is invalid input!. Please enter a, b, c, or d.")
+                correct = input("Enter the correct answer (a, b, c, or d"):
+                    
