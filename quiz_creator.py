@@ -36,3 +36,8 @@ def collect_questions():
 
 if __name__ == "__main__":
     collect_questions()
+    
+    
+# additional features of this program
+# 1. the user will choose what subject the question is under
+# 2. the user will choose the quiz difficulties
