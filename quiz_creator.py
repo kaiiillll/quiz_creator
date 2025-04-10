@@ -2,13 +2,20 @@
 def collect_questions():
 # print all following instructions
     print("Quiz Creator")
-    print("Enter your desired questions and the answers. Type 'EXIT' to stop the program.\n")
+    print("Enter your desired questions, subject, difficulty, and the answers. Type 'EXIT' to stop the program.\n")
 
     with open("created_questions.txt", "a") as file:
         while True:
             question = input("Enter the question (or 'EXIT' to quit): ")
             if question.lower() == 'EXIT': # I used .lower so it will accept different input from user
                 break # to stop the loop of while
+            
+            print("\nAvailable subjects: Math, Science, History, Literature, General Knowlege, Social Sciences")
+            subject = (input("Enter the subject for this question: ")).title()
+            
+            
+            
+            
             print("\nEnter the four possible answers: ")
             # assigned choices and possible answers to questions
             a = input("a) ")
