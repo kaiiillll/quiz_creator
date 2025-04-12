@@ -13,9 +13,12 @@ def collect_questions():
             print("\nAvailable subjects: Math, Science, History, Literature, General Knowlege, Social Sciences")
             subject = (input("Enter the subject for this question: ")).title()
             
-            
-            
-            
+            while True: 
+                difficulty = input("Enter difficulty level (Easy, Medium, Hard): ").title()
+                if difficulty in ['Easy', 'Medium', 'Hard']:
+                    break
+                print("That is Invalid! Please choose from the three given stages.")
+                
             print("\nEnter the four possible answers: ")
             # assigned choices and possible answers to questions
             a = input("a) ")
@@ -30,12 +33,15 @@ def collect_questions():
                 correct = input("Enter the correct answer (a, b, c, or d")
             
             # these will write the inputs into the file
+            file.write(f"Subject: {subject}\n")
+            file.write(f"Difficulty: {difficulty}\n")
             file.write(f"Question: {question}\n")
             file.write(f"a) {a}\n")
             file.write(f"b) {b}\n")
             file.write(f"c) {c}\n")
             file.write(f"d) {d}\n")
             file.write(f"Correct answer: {correct}\n\n")
+            
             
             print("\nQuestions saved succesfully!.")
        
