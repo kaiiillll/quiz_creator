@@ -43,6 +43,12 @@ def collect_questions():
             file.write(f"Correct answer: {correct}\n\n")
             
             
+            
+            confirm = input("\nSave this question? (yes/no): ").lower()
+            if confirm != 'yes':
+                print("Question discarded. Enter it again if needed.")
+                continue
+
             print("\nQuestions saved succesfully!.")
        
     print("\nAll questions have been saved to 'created_questions.txt'.")
