@@ -42,7 +42,15 @@ def collect_questions():
             file.write(f"d) {d}\n")
             file.write(f"Correct answer: {correct}\n\n")
             
-            
+            print("\n--- Question preview ---")
+            print(f"Subject: {subject}")
+            print(f"Difficulty: {difficulty}")
+            print(f"Question: {question}")
+            print(f"a) {a}")
+            print(f"b) {a}")
+            print(f"c) {c}")
+            print(f"d) {c}")
+            print(f"Correct answer: {correct}")
             
             confirm = input("\nSave this question? (yes/no): ").lower()
             if confirm != 'yes':
