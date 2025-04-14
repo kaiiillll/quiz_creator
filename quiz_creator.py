@@ -13,6 +13,17 @@ def collect_questions():
             "c": option_c.get(),
             "d": option_d.get()
         }
+        correct = correct_answer.get().lower()
+        
+        if not all([question, subject, difficulty, options["a"], options["b"], options["c"],options["d"]):
+            messagebox.showerror("Error", "Please fill all field!")
+            return
+            
+        if correct not in ["a", "b", "c", "d"]:
+            messagebox.showerror("Error", "Correct answer must be a, b, c, or d!!")
+            return
+            
+            
     print("Quiz Creator")
     print("Enter your desired questions, subject, difficulty, and the answers. Type 'EXIT' to stop the program.\n")
 
