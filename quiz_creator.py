@@ -1,6 +1,18 @@
+import tkinter as tk
+from tkinter import messagebox
+
 # use def function 
 def collect_questions():
-# print all following instructions
+    def save_questions():
+        question = question_entry.get("1.0", tk.END.strip()
+        subject = subject_var.get()
+        difficulty = difficulty_var.get()
+        options = {
+            "a": option_a.get(),
+            "b": option_b.get(),
+            "c": option_c.get(),
+            "d": option_d.get()
+        }
     print("Quiz Creator")
     print("Enter your desired questions, subject, difficulty, and the answers. Type 'EXIT' to stop the program.\n")
 
