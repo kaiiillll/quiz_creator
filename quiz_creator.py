@@ -94,6 +94,13 @@ def collect_questions():
     tk.Label(root, text="Correct Answer (a-d):").pack(pady=5)
     correct_answer = tk.Entry(root, width=5)
     correct_answer.pack()
+    
+    # Buttons
+    tk.Button(root, text="Save Question", command=save_question, bg="green", fg="white").pack(pady=10)
+    tk.Button(root, text="Preview", command=preview).pack(pady=5)
+    tk.Button(root, text="Clear", command=clear_fields).pack(pady=5)
+
+    root.mainloop()
         
 if __name__ == "__main__":
     collect_questions()
