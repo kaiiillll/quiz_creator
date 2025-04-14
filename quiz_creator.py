@@ -38,11 +38,35 @@ def collect_questions():
         
     def preview():
         preview text = f"Subject: {subject_var.get()}\n
+        preview_text += f"Difficulty: {difficulty_var.get()}\n"
+        preview_text += f"Question: {question_entry.get('1.0', tk.END).strip()}\n"
+        preview_text += f"a) {option_a.get()}\n"
+        preview_text += f"b) {option_b.get()}\n"
+        preview_text += f"c) {option_c.get()}\n"
+        preview_text += f"d) {option_d.get()}\n"
+        preview_text += f"Correct: {correct_answer.get().lower()}"
         
-            
-    print("Quiz Creator")
-    print("Enter your desired questions, subject, difficulty, and the answers. Type 'EXIT' to stop the program.\n")
-            
+        messagebox.showinfo("Preview", preview_text)
+        
+    def clear_fields():
+        question_entry.delete("1.0", tk.END)
+        subject_var.set("Math")
+        difficulty_var.set("Easy")
+        option_a.delete(0, tk.END)
+        option_b.delete(0, tk.END)
+        option_c.delete(0, tk.END)
+        option_d.delete(0, tk.END)
+        correct_answer.delete(0, tk.END)
+        
+    root = tk.Tk()
+    root.title("Teacher's Quiz Maker")
+    root.geometry("500x550")
+
+    
+    
+        
+
+        
             print("\nAvailable subjects: Math, Science, History, Literature, General Knowlege, Social Sciences")
             subject = (input("Enter the subject for this question: ")).title()
             
