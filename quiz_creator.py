@@ -79,11 +79,22 @@ def collect_questions():
     difficulties = ["Easy", "Medium", "Hard"]
     tk.OptionMenu(root, difficulty_var, *difficulties).pack(fill="x", padx=50)
     
+     # Answer Options
+    tk.Label(root, text="Options:").pack(pady=5)
+    option_a = tk.Entry(root, width=50)
+    option_a.pack(pady=2)
+    option_b = tk.Entry(root, width=50)
+    option_b.pack(pady=2)
+    option_c = tk.Entry(root, width=50)
+    option_c.pack(pady=2)
+    option_d = tk.Entry(root, width=50)
+    option_d.pack(pady=2)
+
+    # Correct Answer
+    tk.Label(root, text="Correct Answer (a-d):").pack(pady=5)
+    correct_answer = tk.Entry(root, width=5)
+    correct_answer.pack()
         
 if __name__ == "__main__":
     collect_questions()
     
-    
-    
-    
-    # TO make this program this more amazing I will make this into a app and user more friendly
