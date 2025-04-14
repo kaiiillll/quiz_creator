@@ -23,15 +23,25 @@ def collect_questions():
             messagebox.showerror("Error", "Correct answer must be a, b, c, or d!!")
             return
             
+        with open("created_questions.txt", "a") as file:
+            file.write(f"Subject: {subject}\n")
+            file.write(f"Difficulty: {difficulty}\n")
+            file.write(f"Question: {question}\n")
+            file.write(f"a) {options['a']}\n")
+            file.write(f"b) {options['b']}\n")
+            file.write(f"c) {options['c']}\n")
+            file.write(f"d) {options['d']}\n")
+            file.write(f"Correct: {correct}\n\n")
+            
+        messagebox.showinfo("Saved", "Question saved succesfully!")
+        clear_fields()
+        
+    def preview():
+        preview text = f"Subject: {subject_var.get()}\n
+        
             
     print("Quiz Creator")
     print("Enter your desired questions, subject, difficulty, and the answers. Type 'EXIT' to stop the program.\n")
-
-    with open("created_questions.txt", "a") as file:
-        while True:
-            question = input("Enter the question (or 'exit' to quit): ")
-            if question.lower() == 'exit': # I used .lower so it will accept different input from user
-                break # to stop the loop of while
             
             print("\nAvailable subjects: Math, Science, History, Literature, General Knowlege, Social Sciences")
             subject = (input("Enter the subject for this question: ")).title()
