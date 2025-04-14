@@ -6,8 +6,8 @@ def collect_questions():
 
     with open("created_questions.txt", "a") as file:
         while True:
-            question = input("Enter the question (or 'EXIT' to quit): ")
-            if question.lower() == 'EXIT': # I used .lower so it will accept different input from user
+            question = input("Enter the question (or 'exit' to quit): ")
+            if question.lower() == 'exit': # I used .lower so it will accept different input from user
                 break # to stop the loop of while
             
             print("\nAvailable subjects: Math, Science, History, Literature, General Knowlege, Social Sciences")
@@ -63,3 +63,8 @@ def collect_questions():
 
 if __name__ == "__main__":
     collect_questions()
+    
+    
+    
+    
+    # TO make this program this more amazing I will make this into a app and user more friendly
