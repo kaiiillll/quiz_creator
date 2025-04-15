@@ -15,8 +15,8 @@ def collect_questions():
         }
         correct = correct_answer.get().lower()
         
-        if not all([question, subject, difficulty, options["a"], options["b"], options["c"],options["d"]):
-            messagebox.showerror("Error", "Please fill all field!")
+        if not all([question,subject, difficulty, options["a"], options["b"], options["c"], options["d"], correct]):
+            messagebox.showerror("Error", "Please fill all fields!")
             return
             
         if correct not in ["a", "b", "c", "d"]:
@@ -61,6 +61,7 @@ def collect_questions():
     root = tk.Tk()
     root.title("Teacher's Quiz Maker")
     root.geometry("500x550")
+    root.configure(bg="#e6f2ff")
     
     # Question Entry
     tk.Label(root, text="Question:").pack(pady=5)
