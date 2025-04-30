@@ -2,4 +2,5 @@
 # print the needed information from the user
 # print the interface 
 # print the wheel of fortune
-# print the 
+# run the game if valid input
+# print the scores
