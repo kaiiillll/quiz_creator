@@ -73,3 +73,13 @@ class BrainRouletteGame:
             )
             self.animated_chars.append((char_id, x_pos, y_pos, color))
             x_pos += 30
+            
+ # Implementation of the animation program
+        self.current_char_index = 0
+        self.animate_next_char()
+    
+    def animate_next_char(self):
+        """Animate the next character in the intro"""
+        if self.current_char_index < len(self.animated_chars):
+            char_id, x, y, color = self.animated_chars[self.current_char_index]
+            
