@@ -22,3 +22,12 @@ class BrainRouletteGame:
             "year": ""
         }
 
+# game data to disrupt the user if 3 more attempts
+        self.all_questions = defaultdict(list)
+        self.current_questions = []
+        self.current_question = None
+        self.score = 0
+        self.attempts = 3
+        self.current_level = "Easy"
+        self.questions_answered_in_level = 0
+
