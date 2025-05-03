@@ -31,3 +31,8 @@ class BrainRouletteGame:
         self.current_level = "Easy"
         self.questions_answered_in_level = 0
 
+# animation for wheels "very cute"
+        self.wheel_categories = ["Math", "Science", "History", "English", "General"]
+        self.wheel_colors = ["#FF5733", "#33FF57", "#3357FF", "#F3FF33", "#FF33F5"]
+        self.wheel_spinning = False
+        self.wheel_angle = 0
