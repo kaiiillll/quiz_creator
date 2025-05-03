@@ -47,3 +47,9 @@ class BrainRouletteGame:
 # sizes for wheel animation
         self.intro_canvas = tk.Canvas(self.root, width=800, height=400, bg="#000000", highlightthickness=0)
         self.intro_canvas.pack(pady=50)
+        
+# displayed text, size, and their color
+        intro_text = "W E L C O M E   T O   T H E   B R A I N   R O U L E T T E"
+        colors = ["#FF0000", "#FF7F00", "#FFFF00", "#00FF00", 
+                 "#0000FF", "#4B0082", "#9400D3", "#FF1493",
+                 "#00FFFF", "#7CFC00", "#FFD700", "#FF4500"]
