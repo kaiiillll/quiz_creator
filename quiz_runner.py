@@ -58,3 +58,18 @@ class BrainRouletteGame:
         self.animated_chars = []
         x_pos = 100
         y_pos = 200
+        
+        for kyle, charot in enumerate(intro_text):
+            if charot == " ":
+                x_pos += 15  
+                continue
+                
+            color = colors[kyle % len(colors)]
+            char_id = self.intro_canvas.create_text(
+                x_pos, y_pos, text=charot, 
+                font=("Impact", 28, "bold"), 
+                fill=color,
+                state=tk.HIDDEN
+            )
+            self.animated_chars.append((char_id, x_pos, y_pos, color))
+            x_pos += 30
