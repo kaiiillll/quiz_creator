@@ -36,3 +36,14 @@ class BrainRouletteGame:
         self.wheel_colors = ["#FF5733", "#33FF57", "#3357FF", "#F3FF33", "#FF33F5"]
         self.wheel_spinning = False
         self.wheel_angle = 0
+        
+# intro animation of the wheels
+        self.show_intro_animation()
+    
+    def show_intro_animation(self):
+        """Show colorful 'BRAIN ROULETTE' intro animation"""
+        self.clear_screen()
+
+# sizes for wheel animation
+        self.intro_canvas = tk.Canvas(self.root, width=800, height=400, bg="#000000", highlightthickness=0)
+        self.intro_canvas.pack(pady=50)
