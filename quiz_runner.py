@@ -53,3 +53,8 @@ class BrainRouletteGame:
         colors = ["#FF0000", "#FF7F00", "#FFFF00", "#00FF00", 
                  "#0000FF", "#4B0082", "#9400D3", "#FF1493",
                  "#00FFFF", "#7CFC00", "#FFD700", "#FF4500"]
+        
+# animation per letter with colors
+        self.animated_chars = []
+        x_pos = 100
+        y_pos = 200
