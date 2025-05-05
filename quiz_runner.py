@@ -83,3 +83,23 @@ class BrainRouletteGame:
         if self.current_char_index < len(self.animated_chars):
             char_id, x, y, color = self.animated_chars[self.current_char_index]
             
+ # to make the intro visible to the app
+            self.intro_canvas.itemconfig(char_id, state=tk.NORMAL)
+            
+            # Bounce effect
+            for kyle in range(5):
+                self.intro_canvas.move(char_id, 0, -5)
+                self.root.update()
+                time.sleep(0.03)
+            for kyle in range(5):
+                self.intro_canvas.move(char_id, 0, 5)
+                self.root.update()
+                time.sleep(0.03)
+            
+            self.current_char_index += 1
+            self.root.after(50, self.animate_next_char)
+        else:
+            # completed animation and continue button
+            self.root.after(1000, self.show_continue_button)
+    
+            
