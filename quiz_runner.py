@@ -298,3 +298,22 @@ def spin_wheel(self):
         tk.Button(self.root, text="SPIN!", command=self.start_wheel_spin, 
                  bg="#FF0000", fg="white", font=("Arial", 16, "bold"),
                  relief="raised", bd=5).pack(pady=20)
+def draw_wheel(self, angle=0):
+        """Draw the wheel at the specified angle"""
+        self.wheel_canvas.delete("all")
+        
+        center_x, center_y = 250, 250
+        radius = 200
+        
+        # Draw wheel segments
+        for i in range(len(self.wheel_categories)):
+            start_angle = angle + (i * 360/len(self.wheel_categories))
+            end_angle = angle + ((i+1) * 360/len(self.wheel_categories))
+            
+            # Draw segment
+            self.wheel_canvas.create_arc(
+                center_x-radius, center_y-radius, 
+                center_x+radius, center_y+radius,
+                start=start_angle, extent=end_angle-start_angle,
+                fill=self.wheel_colors[i], outline="white"
+            )
