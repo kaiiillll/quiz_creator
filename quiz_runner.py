@@ -185,3 +185,45 @@ class BrainRouletteGame:
             {"category": "English", "question": "Who wrote 'Romeo and Juliet'?", "answer": "William Shakespeare"},
             {"category": "General", "question": "What is the largest ocean on Earth?", "answer": "Pacific"}
         ])
+        
+    def show_registration_screen(self):
+        """Show player registration form"""
+        self.clear_screen()
+        
+        # Title
+        tk.Label(self.root, text="Player Registration", font=("Arial", 24, "bold"), bg="#000000", fg="#FFFFFF").pack(pady=20)
+        
+        # Registration frame
+        reg_frame = tk.Frame(self.root, bg="#000000")
+        reg_frame.pack(pady=20)
+        
+        # Name
+        tk.Label(reg_frame, text="Full Name:", font=("Arial", 12), bg="#000000", fg="#FFFFFF").grid(row=0, column=0, padx=10, pady=5, sticky="e")
+        self.name_entry = tk.Entry(reg_frame, font=("Arial", 12))
+        self.name_entry.grid(row=0, column=1, padx=10, pady=5)
+        
+        # Gender
+        tk.Label(reg_frame, text="Gender:", font=("Arial", 12), bg="#000000", fg="#FFFFFF").grid(row=1, column=0, padx=10, pady=5, sticky="e")
+        self.gender_var = tk.StringVar(value="Male")
+        tk.Radiobutton(reg_frame, text="Male", variable=self.gender_var, value="Male", bg="#000000", fg="#FFFFFF", selectcolor="#000000").grid(row=1, column=1, padx=10, pady=5, sticky="w")
+        tk.Radiobutton(reg_frame, text="Female", variable=self.gender_var, value="Female", bg="#000000", fg="#FFFFFF", selectcolor="#000000").grid(row=1, column=1, padx=10, pady=5, sticky="e")
+        
+        # Age
+        tk.Label(reg_frame, text="Age:", font=("Arial", 12), bg="#000000", fg="#FFFFFF").grid(row=2, column=0, padx=10, pady=5, sticky="e")
+        self.age_entry = tk.Entry(reg_frame, font=("Arial", 12))
+        self.age_entry.grid(row=2, column=1, padx=10, pady=5)
+        
+        # Section
+        tk.Label(reg_frame, text="Section:", font=("Arial", 12), bg="#000000", fg="#FFFFFF").grid(row=3, column=0, padx=10, pady=5, sticky="e")
+        self.section_entry = tk.Entry(reg_frame, font=("Arial", 12))
+        self.section_entry.grid(row=3, column=1, padx=10, pady=5)
+        
+        # Year
+        tk.Label(reg_frame, text="Year:", font=("Arial", 12), bg="#000000", fg="#FFFFFF").grid(row=4, column=0, padx=10, pady=5, sticky="e")
+        self.year_entry = tk.Entry(reg_frame, font=("Arial", 12))
+        self.year_entry.grid(row=4, column=1, padx=10, pady=5)
+        
+        # Submit button
+        tk.Button(self.root, text="Start Game", command=self.register_player, 
+                 bg="#4CAF50", fg="white", font=("Arial", 14, "bold"),
+                 relief="raised", bd=5).pack(pady=20)
