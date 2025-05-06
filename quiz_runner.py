@@ -278,3 +278,23 @@ def show_main_menu(self):
         tk.Button(button_frame, text="Exit Game", command=self.exit_game, 
                  bg="#FF33F5", fg="white", font=("Arial", 14, "bold"),
                  width=15, relief="raised", bd=5).grid(row=1, column=1, padx=10, pady=10)
+        
+# wheel animations and buttons 
+def spin_wheel(self):
+        """Show the wheel spinning animation and select a category"""
+        self.clear_screen()
+        
+        # Title
+        tk.Label(self.root, text="Spin the Wheel!", font=("Arial", 24, "bold"), bg="#000000", fg="#FFFFFF").pack(pady=20)
+        
+        # Wheel canvas
+        self.wheel_canvas = tk.Canvas(self.root, width=500, height=500, bg="#000000", highlightthickness=0)
+        self.wheel_canvas.pack()
+        
+        # Draw initial wheel
+        self.draw_wheel()
+        
+        # Spin button
+        tk.Button(self.root, text="SPIN!", command=self.start_wheel_spin, 
+                 bg="#FF0000", fg="white", font=("Arial", 16, "bold"),
+                 relief="raised", bd=5).pack(pady=20)
