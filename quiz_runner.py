@@ -344,3 +344,20 @@ def draw_wheel(self, angle=0):
             fill="#FFFFFF"
         )
         
+ # wheel speed and animations       
+def start_wheel_spin(self):
+        """Start the wheel spinning animation"""
+        if not self.wheel_spinning:
+            self.wheel_spinning = True
+            self.spin_wheel_animation()
+    
+def spin_wheel_animation(self, speed=30, deceleration=0.98):
+        """Animate the wheel spinning"""
+        if speed > 0.5:
+            self.wheel_angle = (self.wheel_angle + speed) % 360
+            self.draw_wheel(self.wheel_angle)
+            self.root.after(30, lambda: self.spin_wheel_animation(speed * deceleration, deceleration))
+        else:
+            self.wheel_spinning = False
+            self.select_category()
+        
