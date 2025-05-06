@@ -101,5 +101,27 @@ class BrainRouletteGame:
         else:
             # completed animation and continue button
             self.root.after(1000, self.show_continue_button)
+            
+# def function of showing the different buttons
+def show_continue_button(self):
+        """Show continue button after intro"""
+        tk.Button(self.root, text="Continue to Game", 
+                 command=self.load_game_content,
+                 bg="#FF0000", fg="white",
+                 font=("Arial", 14, "bold"),
+                 relief="raised", bd=5).pack(pady=30)
+    
+    def load_game_content(self):
+        """Load game content after intro"""
+        self.load_questions()
+        self.show_registration_screen()e
+    
+    def clear_screen(self):
+        """Clear all widgets from the root window"""
+        for widget in self.root.winfo_children():
+            widget.destroy()
+    
+    def load_questions(self):
+        """Load questions from a dictionary (in a real app, this would be from a file/database)"""
     
             
