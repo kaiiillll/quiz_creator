@@ -246,3 +246,35 @@ def register_player(self):
             return
         
         self.show_main_menu()
+        
+def show_main_menu(self):
+        """Show the main menu screen"""
+        self.clear_screen()
+        
+        # Title
+        tk.Label(self.root, text="BRAIN ROULETTE", font=("Impact", 36, "bold"), bg="#000000", fg="#FF0000").pack(pady=30)
+        
+        # Player info
+        tk.Label(self.root, text=f"Player: {self.player['name']}", font=("Arial", 14), bg="#000000", fg="#FFFFFF").pack()
+        tk.Label(self.root, text=f"Level: {self.current_level}", font=("Arial", 14), bg="#000000", fg="#FFFFFF").pack()
+        tk.Label(self.root, text=f"Score: {self.score}", font=("Arial", 14), bg="#000000", fg="#FFFFFF").pack(pady=10)
+        
+        # Menu buttons
+        button_frame = tk.Frame(self.root, bg="#000000")
+        button_frame.pack(pady=30)
+        
+        tk.Button(button_frame, text="Spin Wheel", command=self.spin_wheel, 
+                 bg="#FF5733", fg="white", font=("Arial", 14, "bold"),
+                 width=15, relief="raised", bd=5).grid(row=0, column=0, padx=10, pady=10)
+        
+        tk.Button(button_frame, text="Instructions", command=self.show_instructions, 
+                 bg="#33FF57", fg="black", font=("Arial", 14, "bold"),
+                 width=15, relief="raised", bd=5).grid(row=0, column=1, padx=10, pady=10)
+        
+        tk.Button(button_frame, text="View Profile", command=self.show_profile, 
+                 bg="#3357FF", fg="white", font=("Arial", 14, "bold"),
+                 width=15, relief="raised", bd=5).grid(row=1, column=0, padx=10, pady=10)
+        
+        tk.Button(button_frame, text="Exit Game", command=self.exit_game, 
+                 bg="#FF33F5", fg="white", font=("Arial", 14, "bold"),
+                 width=15, relief="raised", bd=5).grid(row=1, column=1, padx=10, pady=10)
