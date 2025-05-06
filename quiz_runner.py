@@ -317,3 +317,16 @@ def draw_wheel(self, angle=0):
                 start=start_angle, extent=end_angle-start_angle,
                 fill=self.wheel_colors[i], outline="white"
             )
+# position of the text
+            mid_angle = (start_angle + end_angle) / 2
+            text_radius = radius * 0.7
+            text_x = center_x + text_radius * 0.7 * math.cos(math.radians(mid_angle))
+            text_y = center_y + text_radius * 0.7 * math.sin(math.radians(mid_angle))
+            
+            self.wheel_canvas.create_text(
+                text_x, text_y,
+                text=self.wheel_categories[i],
+                font=("Arial", 12, "bold"),
+                fill="black"
+            )
+        
