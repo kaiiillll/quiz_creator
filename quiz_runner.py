@@ -329,4 +329,18 @@ def draw_wheel(self, angle=0):
                 font=("Arial", 12, "bold"),
                 fill="black"
             )
+ # position of pointer and center of wheel
+        self.wheel_canvas.create_oval(
+            center_x-20, center_y-20,
+            center_x+20, center_y+20,
+            fill="#000000", outline="white"
+        )
+        
+        
+        self.wheel_canvas.create_polygon(
+            center_x+radius+10, center_y-10,
+            center_x+radius+10, center_y+10,
+            center_x+radius+30, center_y,
+            fill="#FFFFFF"
+        )
         
