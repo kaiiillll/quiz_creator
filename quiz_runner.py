@@ -227,3 +227,22 @@ class BrainRouletteGame:
         tk.Button(self.root, text="Start Game", command=self.register_player, 
                  bg="#4CAF50", fg="white", font=("Arial", 14, "bold"),
                  relief="raised", bd=5).pack(pady=20)
+def register_player(self):
+        """Register player information"""
+        self.player["name"] = self.name_entry.get().strip()
+        self.player["gender"] = self.gender_var.get()
+        
+        try:
+            self.player["age"] = int(self.age_entry.get())
+        except ValueError:
+            messagebox.showerror("Error", "Please enter a valid age")
+            return
+        
+        self.player["section"] = self.section_entry.get().strip()
+        self.player["year"] = self.year_entry.get().strip()
+        
+        if not self.player["name"]:
+            messagebox.showerror("Error", "Please enter your name")
+            return
+        
+        self.show_main_menu()
