@@ -1,8 +1,10 @@
 import tkinter as tk
+import math
 from tkinter import messagebox
 import random
 import time
 from collections import defaultdict
+import json  # Added for reading the questions file
 
 class BrainRouletteGame:
     def __init__(self, root):
@@ -11,7 +13,7 @@ class BrainRouletteGame:
         self.root.geometry("800x600")
         self.root.configure(bg="#000000")
         
-        # Player data
+        # information from the user
         self.player = {
             "name": "",
             "gender": "",
@@ -20,7 +22,7 @@ class BrainRouletteGame:
             "year": ""
         }
         
-        # Game data
+        # Data of the game
         self.all_questions = defaultdict(list)
         self.current_questions = []
         self.current_question = None
@@ -35,7 +37,7 @@ class BrainRouletteGame:
         self.wheel_spinning = False
         self.wheel_angle = 0
         
-         # Show colorful intro animation
+        # Show colorful intro animation
         self.show_intro_animation()
     
     def show_intro_animation(self):
@@ -87,7 +89,7 @@ class BrainRouletteGame:
 
         self.current_char_index = 0
         self.animate_next_char()
-    
+
     def animate_next_char(self):
         """Animate the next character in the intro"""
         if self.current_char_index < len(self.animated_chars):
@@ -131,9 +133,32 @@ class BrainRouletteGame:
             widget.destroy()
     
     def load_questions(self):
-        """Load questions from a dictionary (in a real app, this would be from a file/database)"""
-       
-        # Entry for each diffciulty
+        """Load questions from created_questions.txt file"""
+        try:
+            with open("created_questions.txt", "r") as file:
+                questions_data = json.load(file)
+                
+                for level in ["Easy", "Medium", "Hard"]:
+                    if level in questions_data:
+                        self.all_questions[level] = questions_data[level]
+                    else:
+                        messagebox.showwarning("Warning", f"No {level} questions found in the file")
+                        
+                # If no questions were loaded at all
+                if not self.all_questions:
+                    messagebox.showerror("Error", "No questions found in the file. Using default questions.")
+                    self.load_default_questions()
+                    
+        except FileNotFoundError:
+            messagebox.showerror("Error", "created_questions.txt file not found. Using default questions.")
+            self.load_default_questions()
+        except json.JSONDecodeError:
+            messagebox.showerror("Error", "Invalid format in created_questions.txt. Using default questions.")
+            self.load_default_questions()
+    
+    def load_default_questions(self):
+        """Load default questions if the file is not available"""
+        # readily available questions if the file is empty
         # Easy questions
         self.all_questions["Easy"].extend([
             {"category": "Math", "question": "What is 2 + 2?", "answer": "4"},
@@ -160,4 +185,3 @@ class BrainRouletteGame:
             {"category": "English", "question": "Who wrote 'Romeo and Juliet'?", "answer": "William Shakespeare"},
             {"category": "General", "question": "What is the largest ocean on Earth?", "answer": "Pacific"}
         ])
-    
