@@ -379,4 +379,17 @@ def select_category(self):
         
         # Continue to question after delay
         self.root.after(2000, lambda: self.prepare_question(selected_category))
+
+# preparing questions and category    
+def prepare_question(self, category):
+        """Prepare a question from the selected category"""
+        # Filter questions by category and level
+        available_questions = [
+            q for q in self.all_questions[self.current_level] 
+            if q["category"] == category
+        ]
         
+        if not available_questions:
+            messagebox.showinfo("No Questions", f"No {category} questions available for {self.current_level} level.")
+            self.show_main_menu()
+            return
