@@ -393,3 +393,27 @@ def prepare_question(self, category):
             messagebox.showinfo("No Questions", f"No {category} questions available for {self.current_level} level.")
             self.show_main_menu()
             return
+
+ # Select a random question
+        self.current_question = random.choice(available_questions)
+        self.show_question()
+    
+def show_question(self):
+        """Display the current question"""
+        self.clear_screen()
+        
+        # Display category and level
+        tk.Label(self.root, text=f"Category: {self.current_question['category']}", 
+                font=("Arial", 14), bg="#000000", fg="#FFFFFF").pack(pady=5)
+        tk.Label(self.root, text=f"Level: {self.current_level}", 
+                font=("Arial", 14), bg="#000000", fg="#FFFFFF").pack(pady=5)
+        
+        # Display score and attempts
+        info_frame = tk.Frame(self.root, bg="#000000")
+        info_frame.pack(pady=10)
+        
+        tk.Label(info_frame, text=f"Score: {self.score}", 
+                font=("Arial", 12), bg="#000000", fg="#FFFFFF").grid(row=0, column=0, padx=20)
+        tk.Label(info_frame, text=f"Attempts left: {self.attempts}", 
+                font=("Arial", 12), bg="#000000", fg="#FFFFFF").grid(row=0, column=1, padx=20)
+        
