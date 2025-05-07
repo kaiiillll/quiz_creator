@@ -360,4 +360,23 @@ def spin_wheel_animation(self, speed=30, deceleration=0.98):
         else:
             self.wheel_spinning = False
             self.select_category()
+            
+# selected categories
+def select_category(self):
+        """Determine which category was selected"""
+        segment_angle = 360 / len(self.wheel_categories)
+        normalized_angle = 360 - (self.wheel_angle % 360)
+        selected_index = int(normalized_angle / segment_angle) % len(self.wheel_categories)
+        selected_category = self.wheel_categories[selected_index]
+        
+        # Show selected category
+        self.wheel_canvas.create_text(
+            250, 450,
+            text=f"Selected: {selected_category}",
+            font=("Arial", 16, "bold"),
+            fill="#FFFFFF"
+        )
+        
+        # Continue to question after delay
+        self.root.after(2000, lambda: self.prepare_question(selected_category))
         
