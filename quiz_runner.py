@@ -533,3 +533,8 @@ def exit_game(self):
         """Exit the game"""
         if messagebox.askyesno("Exit", "Are you sure you want to exit the game?"):
             self.root.destroy()
+            
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = BrainRouletteGame(root)
+    root.mainloop()
