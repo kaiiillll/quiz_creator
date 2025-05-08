@@ -505,3 +505,31 @@ def show_instructions(self):
         tk.Button(self.root, text="Back to Menu", command=self.show_main_menu, 
                  bg="#FF0000", fg="white", font=("Arial", 14, "bold")).pack(pady=20)
     
+# users profile and exit option for users
+def show_profile(self):
+        """Show player profile"""
+        self.clear_screen()
+        
+        tk.Label(self.root, text="Player Profile", font=("Arial", 24, "bold"), bg="#000000", fg="#FFFFFF").pack(pady=20)
+        
+        profile_info = [
+            f"Name: {self.player['name']}",
+            f"Gender: {self.player['gender']}",
+            f"Age: {self.player['age']}",
+            f"Section: {self.player['section']}",
+            f"Year: {self.player['year']}",
+            "",
+            f"Current Level: {self.current_level}",
+            f"Current Score: {self.score}"
+        ]
+        
+        for info in profile_info:
+            tk.Label(self.root, text=info, font=("Arial", 14), bg="#000000", fg="#FFFFFF").pack(pady=5)
+        
+        tk.Button(self.root, text="Back to Menu", command=self.show_main_menu, 
+                 bg="#FF0000", fg="white", font=("Arial", 14, "bold")).pack(pady=20)
+    
+def exit_game(self):
+        """Exit the game"""
+        if messagebox.askyesno("Exit", "Are you sure you want to exit the game?"):
+            self.root.destroy()
