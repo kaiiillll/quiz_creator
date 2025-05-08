@@ -460,3 +460,25 @@ def check_answer(self):
             else:
                 messagebox.showerror("Game Over", "You've used all your attempts!")
                 self.reset_game()
+                
+# level and reset functions
+def level_up(self):
+        """Move player to next difficulty level"""
+        if self.current_level == "Easy":
+            self.current_level = "Medium"
+        elif self.current_level == "Medium":
+            self.current_level = "Hard"
+        
+        self.questions_answered_in_level = 0
+        self.attempts = 3  # Reset attempts
+        
+        messagebox.showinfo("Level Up!", f"Congratulations! You've reached {self.current_level} level!")
+        self.show_main_menu()
+    
+def reset_game(self):
+        """Reset the game to initial state"""
+        self.score = 0
+        self.attempts = 3
+        self.current_level = "Easy"
+        self.questions_answered_in_level = 0
+        self.show_main_menu()
