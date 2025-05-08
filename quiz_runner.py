@@ -402,13 +402,13 @@ def show_question(self):
         """Display the current question"""
         self.clear_screen()
         
-        # Display category and level
+# Display category and level
         tk.Label(self.root, text=f"Category: {self.current_question['category']}", 
                 font=("Arial", 14), bg="#000000", fg="#FFFFFF").pack(pady=5)
         tk.Label(self.root, text=f"Level: {self.current_level}", 
                 font=("Arial", 14), bg="#000000", fg="#FFFFFF").pack(pady=5)
         
-        # Display score and attempts
+# Display score and attempts
         info_frame = tk.Frame(self.root, bg="#000000")
         info_frame.pack(pady=10)
         
@@ -417,3 +417,19 @@ def show_question(self):
         tk.Label(info_frame, text=f"Attempts left: {self.attempts}", 
                 font=("Arial", 12), bg="#000000", fg="#FFFFFF").grid(row=0, column=1, padx=20)
         
+# Qustion display and answer 
+ 
+        tk.Label(self.root, text=self.current_question["question"], 
+                font=("Arial", 16, "bold"), bg="#000000", fg="#FFFFFF", wraplength=700).pack(pady=30)
+        
+        # Answer entry
+        self.answer_entry = tk.Entry(self.root, font=("Arial", 14))
+        self.answer_entry.pack(pady=10)
+        self.answer_entry.focus_set()
+        
+        # Submit button
+        tk.Button(self.root, text="Submit Answer", command=self.check_answer, 
+                bg="#4CAF50", fg="white", font=("Arial", 14, "bold")).pack(pady=20)
+        
+        # Bind Enter key to submit
+        self.root.bind("<Return>", lambda event: self.check_answer())
