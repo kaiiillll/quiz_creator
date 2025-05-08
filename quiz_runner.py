@@ -482,3 +482,26 @@ def reset_game(self):
         self.current_level = "Easy"
         self.questions_answered_in_level = 0
         self.show_main_menu()
+        
+# instructions for the useer
+def show_instructions(self):
+        """Show game instructions"""
+        self.clear_screen()
+        
+        tk.Label(self.root, text="Game Instructions", font=("Arial", 24, "bold"), bg="#000000", fg="#FFFFFF").pack(pady=20)
+        
+        instructions = [
+            "1. Spin the wheel to select a question category.",
+            "2. Answer the question correctly to earn 10 points.",
+            "3. You have 3 attempts to answer correctly.",
+            "4. Answer 5 questions correctly in a level to advance.",
+            "5. The game has three levels: Easy, Medium, and Hard.",
+            "6. Try to get the highest score possible!"
+        ]
+        
+        for instruction in instructions:
+            tk.Label(self.root, text=instruction, font=("Arial", 12), bg="#000000", fg="#FFFFFF").pack(pady=5)
+        
+        tk.Button(self.root, text="Back to Menu", command=self.show_main_menu, 
+                 bg="#FF0000", fg="white", font=("Arial", 14, "bold")).pack(pady=20)
+    
