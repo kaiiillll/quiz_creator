@@ -433,3 +433,30 @@ def show_question(self):
         
         # Bind Enter key to submit
         self.root.bind("<Return>", lambda event: self.check_answer())
+        
+# functions for checking the answer
+def check_answer(self):
+        """Check if the player's answer is correct"""
+        player_answer = self.answer_entry.get().strip().lower()
+        correct_answer = self.current_question["answer"].strip().lower()
+        
+        if player_answer == correct_answer:
+            # Correct answer
+            self.score += 10
+            self.questions_answered_in_level += 1
+            messagebox.showinfo("Correct!", "Your answer is correct! +10 points")
+            
+            # Check if player should level up
+            if self.questions_answered_in_level >= 5 and self.current_level != "Hard":
+                self.level_up()
+            else:
+                self.show_main_menu()
+        else:
+            # Incorrect answer
+            self.attempts -= 1
+            if self.attempts > 0:
+                messagebox.showerror("Incorrect", f"Wrong answer! You have {self.attempts} attempts left.")
+                self.answer_entry.delete(0, tk.END)
+            else:
+                messagebox.showerror("Game Over", "You've used all your attempts!")
+                self.reset_game()
